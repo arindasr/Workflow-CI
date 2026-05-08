@@ -47,7 +47,7 @@ jobs:
 
       - name: 8. Build Docker Image (Fungsi mlflow build-docker)
         run: |
-          mlflow models build-docker -m "mlruns/0/${{ env.RUN_ID }}/artifacts/model" -n "${{ secrets.DOCKER_USERNAME }}/wemovies-model:latest"
+          mlflow models build-docker -m "mlruns/0/${{ env.RUN_ID }}/artifacts/model" -n "${{ secrets.DOCKER_USERNAME }}/wemovies-model:latest" --env-manager conda
 
       - name: 9. Push Docker Image ke Docker Hub
         run: |
